@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import RequestContext
 
 
 def index(request):
-    return HttpResponse('hello rango')
+	context=RequestContext(request)
+	return render(request,'rango/index.html',context)
 
 
 def about(request):
