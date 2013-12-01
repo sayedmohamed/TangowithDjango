@@ -1,7 +1,7 @@
 import os
 
 def populate():
-	python_cat=add_cat(name='python')
+	python_cat=add_cat(name='python',views=128,likes=64)
 
 	add_page(cat=python_cat,
 		title="official python tutorial" , 
@@ -16,7 +16,7 @@ def populate():
 		url="http://www.korokithakis.net/tutorials/python/")
 
 
-	django_cat=add_cat(name='django')
+	django_cat=add_cat(name='django',views=64,likes=32)
 
 	add_page(cat=django_cat,
 		title="officical django tutorial",
@@ -30,7 +30,7 @@ def populate():
 		title="how to tango with django",
 		url="http://www.tangowithdjango.com/")
 
-	frame_cat=add_cat(name="other framework")
+	frame_cat=add_cat(name="other framework",views=32,likes=16)
 
 	add_page(cat=frame_cat,
 		title="bottle",
@@ -48,8 +48,8 @@ def add_page(cat,title,url,views=0):
 	p=Page.objects.get_or_create(category=cat,title=title,url=url,views=views)[0]
 	return p
 
-def add_cat(name):
-	c=Category.objects.get_or_create(name=name)[0]
+def add_cat(name,views,likes):
+	c=Category.objects.get_or_create(name=name,views=views,title=title)[0]
 	return c
 
 
