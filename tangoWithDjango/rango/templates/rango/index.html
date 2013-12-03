@@ -6,9 +6,32 @@
 	</head>
 
 	<body>
-		<h1>rango say</h1>hello world<br />
+		<h1>the top 5 most liked categories</h1><br />
+
+		{% if categories %}
+			<ul>
+				{% for category in categories %}
+					<li><a href="/rango/category/{{ category.url }}/">
+					{{ category.name }}</a></li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<p>no category in the datebase</p>
+		{% endif %}
+
+		<h1>the top 5 most viewed pages</h1>
+
+		{% if pages %}
+			<ul>
+				{% for page in pages %}
+					<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<p>no pages in the datebase</p>
+		{% endif %}
+
 		<a href="/rango/about/">About</a><br />
-		<img src="{% static 'rango/rango.jpg' %}" alt="rango">
 
 	</body>
 </html>
